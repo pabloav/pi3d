@@ -14,6 +14,7 @@
 #
 
 import pi3d
+import math
 
 # Setup display and initialise pi3d
 display = pi3d.display()
@@ -25,8 +26,8 @@ display.setBackColour(0,0,0,1)    	# r,g,b,alpha
 # Setting 2nd param to True renders 'True' Blending
 # (this can be changed later to 'False' with 'cloudimg.blend = False')
 
-arialFont = pi3d.font("AR_CENA","#dd00aa")   #load AR_CENA font and set the font colour to 'raspberry'
-destineFont = pi3d.font("AR_DELANEY", "#0055ff")
+arialFont = pi3d.font("MicrosoftSansSerif","#dd00aa")   #load AR_CENA font and set the font colour to 'raspberry'
+destineFont = pi3d.font("Tahoma", "#0055ff")
 
 # Fetch key presses
 mykeys = pi3d.key()
@@ -41,7 +42,8 @@ while 1:
     
     pi3d.identity()
 
-    pi3d.drawString(arialFont, "Test arial font!" ,    -1.0,  0.0, -2.2, rot, 0.003, 0.003)
-    pi3d.drawString(destineFont, "Test destine font!", -1.0, -0.3, -2.2, rot, 0.002,0.002)
+#                                               x oof, y off, z off, angle, x scale, y scale
+    pi3d.drawString(arialFont, "`Test arial font!" ,    math.sin(rot/100), math.cos(rot/100), -2.2, rot, 0.003, 0.003)
+    pi3d.drawString(destineFont, ".Test destine font!", math.cos(rot/100), math.sin(rot/100) - 0.3, -2.2, -rot, 0.001, 0.001)
     
     display.swapBuffers()
