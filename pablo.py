@@ -25,6 +25,9 @@ display.setBackColour(0,0,0,1)    	# r,g,b,alpha
 
 # Setting 2nd param to True renders 'True' Blending
 # (this can be changed later to 'False' with 'cloudimg.blend = False')
+myplane = pi3d.createPlane(300, 300, 'box', 100, 100, 0)
+
+starsimg = pi3d.loadTexture("textures/stars2.jpg")
 
 arialFont = pi3d.font("MicrosoftSansSerif","#dd00aa")   #load AR_CENA font and set the font colour to 'raspberry'
 destineFont = pi3d.font("Tahoma", "#0055ff")
@@ -42,8 +45,12 @@ while 1:
     
     pi3d.identity()
 
-#                                               x oof, y off, z off, angle, x scale, y scale
+#    pi3d.sprite(starsimg, 0,0,-20, 20,20,rot)
+#    pi3d.rectangle(starsimg, 0,0,-20, 20,20,rot)
+
+#    myplane.draw(starsimg)
+    #                                           x oof, y off, z off, angle, x scale, y scale
     pi3d.drawString(arialFont, "`Test arial font!" ,    math.sin(rot/100), math.cos(rot/100), -2.2, rot, 0.003, 0.003)
-    pi3d.drawString(destineFont, ".Test destine font!", math.cos(rot/100), math.sin(rot/100) - 0.3, -2.2, -rot, 0.001, 0.001)
+#    pi3d.drawString(destineFont, ".Test destine font!", math.cos(rot/100), math.sin(rot/100) - 0.3, -2.2, -rot, 0.001, 0.001)
     
     display.swapBuffers()
